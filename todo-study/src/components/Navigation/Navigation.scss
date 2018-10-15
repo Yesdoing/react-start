@@ -1,0 +1,28 @@
+.todo-nav {
+    display: flex;
+    background: #fafafa;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    .nav-buttons {
+        display: flex;
+
+        .nav-button {
+            margin: 15px 0 15px 23px;
+            cursor: pointer;
+        }
+    
+    }
+
+    .nav-sort {
+        position: relative;
+        right: 0;
+        margin: 17px 20px 17px 0px;
+        cursor: pointer;
+        img {
+            width: 20px;
+            height: 15px;
+            object-fit: contain;
+        }
+    }
+}

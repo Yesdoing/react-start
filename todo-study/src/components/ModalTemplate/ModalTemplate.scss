@@ -1,0 +1,51 @@
+.modal-template {
+    .modal-open {
+        position: fixed;
+        border: 1px solid black;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        right: 20px;
+        bottom: 20px;
+        background: #000000;
+        cursor: pointer;
+        
+        @media(min-width: 375px) {
+            right: calc(50% - 160px);
+            bottom: calc(50% - 300px);
+        }
+
+        .plus-icon {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 18px;
+            width: 16px;
+            height: 16px; 
+            background-color: white;
+            mask-image: url('../../assets/plus\ \(2\).png');
+            -webkit-mask-image: url('../../assets/plus\ \(2\).png');
+        }
+    }
+    
+    .modal-content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+    
+      .modal-close {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 32px;
+        height: 32px;
+        background-color: white;
+        mask-image: url('../../assets/x_circle@2x.png');
+        -webkit-mask-image: url('../../assets/x_circle@2x.png');
+        cursor: pointer;
+      }
+    }
+}

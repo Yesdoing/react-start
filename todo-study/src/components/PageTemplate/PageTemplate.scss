@@ -1,0 +1,41 @@
+.page-template {
+    margin: 0;
+    width: 375px;
+    height: 630px;
+    background: white;
+
+    @media(min-width: 375px) {
+        margin-top: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .page-header {
+        position: relative;
+        width: inherit;
+        height: 140px;
+        background-image: url('/assets/MaskGroup4.png');
+        .page-spans {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            top: 0;
+            left: 0;
+            background: rgba($color: #000000, $alpha: 0.8);
+            p {
+                font-size: 28px;
+                font-weight: 500;
+                margin: 3px 0 3px 25px;
+                color: white;
+                &:nth-child(1) {
+                    margin-top: 19px;
+                }
+                &:nth-last-child(1) {
+                    color: #00ffe2;
+                }
+            }
+        }
+    }
+
+    
+}
