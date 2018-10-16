@@ -12,11 +12,11 @@ class Navigation extends Component {
         return (
             <div className={cx('todo-nav')}>
                 <div className={cx('nav-buttons')}>
-                    <div className={cx('nav-button')} onClick={onFilter}>ALL</div>
-                    <div className={cx('nav-button')} onClick={onFilter}>TODO</div>
-                    <div className={cx('nav-button')} onClick={onFilter}>DONE</div>
+                    <div className={cx('nav-button')} onClick={() => onFilter('all')}>ALL</div>
+                    <div className={cx('nav-button')} onClick={() => onFilter('todo')}>TODO</div>
+                    <div className={cx('nav-button')} onClick={() => onFilter('done')}>DONE</div>
                 </div>                
-                <div className={cx('nav-sort')} onClick={onSort}>
+                <div className={cx('nav-sort')} onClick={() => onSort()}>
                     <img src={sortImg} alt='sort' />
                 </div>
             </div>

@@ -14,7 +14,9 @@ class App extends Component {
             {id:0, text: '티티 간식 주기', date: '2018-09-09 18:00 ~ 2018-09-09 19:00', done: true},
             {id:1, text: '둔둔이 챱챱', date: '2018-09-08 20:00 ~ 2018-09-09 18:00', done: false}
         ],
-        show: false
+        show: false,
+        filter: 'all',
+        keyword: ''
     };
 
     id = 1
@@ -26,12 +28,33 @@ class App extends Component {
     getDate = () => {
         const today = new Date();
         const dd = today.getDate() < 10 ? '0'+ today.getDate() : today.getDate();
-        const mm = today.getMonth() + 1 < 10 ? '0'+today.getMonth() : today.getMonth();
+        const mm = today.getMonth() + 1 < 10 ? '0'+today.getMonth() : (today.getMonth() + 1);
         const yyyy = today.getFullYear();
         const hour = today.getHours();
         const min = today.getMinutes();
 
         return `${yyyy}-${mm}-${dd} ${hour}:${min} ~ ${yyyy}-${mm}-${dd} ${hour}:${min}`;
+    }
+
+    handleFilter = (state) => {
+        this.setState({
+            filter: state
+        })
+    }
+
+    handleSort = () => {
+        const sortedTodos = this.state.todos.sort((a, b) => {
+            return 1;
+        });
+        this.setState({
+            todos: sortedTodos
+        })
+    }
+
+    handleSearch = (searchValue) => {
+        this.setState({
+            keyword: searchValue
+        });
     }
 
     handleRemove = (id) => {
@@ -103,21 +126,24 @@ class App extends Component {
     }
 
     render() {
-        const { input, show, todos } = this.state;
+        const { input, show, todos, filter, keyword } = this.state;
         const {
             handleChange,
             handleInsert,
             handleToggle,
             handleRemove,
+            handleFilter,
+            handleSort,
+            handleSearch,
             handleOpenModal,
             handleCloseModal
         } = this;
 
         return (
             <PageTemplate>
-                <Navigation />
-                <TodoSearch />
-                <TodoList todos={todos} onToggle={handleToggle} onRemove={handleRemove} />
+                <Navigation onFilter={handleFilter} onSort={handleSort}/>
+                <TodoSearch onSearch={handleSearch} />
+                <TodoList todos={todos} keyword={keyword} filter={filter} onToggle={handleToggle} onRemove={handleRemove} />
                 <ModalTemplate modal={show} onOpenModal={handleOpenModal}
                      onCloseModal={handleCloseModal}>
                     <TodoInput onInsert={handleInsert} onChange={handleChange} value={input} onCloseModal={handleCloseModal} />
