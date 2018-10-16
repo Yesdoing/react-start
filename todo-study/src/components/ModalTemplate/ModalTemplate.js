@@ -5,8 +5,12 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 class ModalTemplate extends Component {
+
+    
+
     render() {
         const { children, modal, onOpenModal, onCloseModal } = this.props;
+
         return (
             <div className={cx('modal-template')}>
                 <div className={cx('modal-open')} onClick={onOpenModal}>

@@ -4,10 +4,11 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-const TodoInput = ({value, onChange, onInsert}) => {
+const TodoInput = ({value, onChange, onInsert, onCloseModal}) => {
     const handleKeyPress = (e) => {
         if(e.key === 'Enter') {
             onInsert();
+            onCloseModal();
         }
     };
 

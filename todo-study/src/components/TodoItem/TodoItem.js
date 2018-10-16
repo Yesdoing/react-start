@@ -8,6 +8,7 @@ const cx = classNames.bind(styles);
 class TodoItem extends Component {
     render() {
         const {done, children, onToggle, onRemove} = this.props;
+        const {text, date} = children;
 
         return (
             <div className={cx('todo-item')} onClick={onToggle}>
@@ -15,10 +16,14 @@ class TodoItem extends Component {
                     <img src={checkIcon} alt='check'/>
                 </div>
                 <div className={cx('text', {done})}>
-                    <p className={cx('todo-content')}>{children.content}</p>
-                    <p className={cx('todo-date')}>{children.date}</p>
+                    <p className={cx('todo-content')}>{text}</p>
+                    <p className={cx('todo-date')}>{date}</p>
                 </div>
-                <div className={cx('delete', {done})} onClick={onRemove}>
+                <div className={cx('delete', {done})} onClick={(e) => {
+                    onRemove();
+                    e.stopPropagation();
+                    }
+                }>
                 </div>
             </div>
         );

@@ -13,7 +13,7 @@
         border: 1px solid #dddddd;
         border-radius: 50%;
         text-align: center;
-
+        cursor: pointer;
         &.done {
             background-color: #00ffe2;
             border-color: #00ffe2;
@@ -60,6 +60,7 @@
         background-color: #ffe3e3;
         mask-image: url('../../assets/remove_btn.png');
         -webkit-mask-image: url('../../assets/remove_btn.png');
+        cursor: pointer;
         &.done {
             background-color: #e8e8e8;
         }
