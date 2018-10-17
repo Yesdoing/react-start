@@ -6,8 +6,8 @@ class TodoList extends Component {
 
     render() {
         const { todos, filter, keyword, onToggle, onRemove } = this.props;
-
-        const todoList = todos.map(
+        const searchedTodos = todos.filter(x => x.text.includes(keyword));
+        const todoList = searchedTodos.map(
             todo => {
                 if(filter === 'done' && todo.done === false) return false;
                 if(filter === 'todo' && todo.done === true) return false;

@@ -51,9 +51,10 @@ class App extends Component {
         })
     }
 
-    handleSearch = (searchValue) => {
+    handleChangeKeyword = (e) => {
+        const { value } = e.target;
         this.setState({
-            keyword: searchValue
+            keyword: value
         });
     }
 
@@ -134,7 +135,7 @@ class App extends Component {
             handleRemove,
             handleFilter,
             handleSort,
-            handleSearch,
+            handleChangeKeyword,
             handleOpenModal,
             handleCloseModal
         } = this;
@@ -142,7 +143,7 @@ class App extends Component {
         return (
             <PageTemplate>
                 <Navigation onFilter={handleFilter} onSort={handleSort}/>
-                <TodoSearch onSearch={handleSearch} />
+                <TodoSearch onChange={handleChangeKeyword} value={keyword}/>
                 <TodoList todos={todos} keyword={keyword} filter={filter} onToggle={handleToggle} onRemove={handleRemove} />
                 <ModalTemplate modal={show} onOpenModal={handleOpenModal}
                      onCloseModal={handleCloseModal}>
