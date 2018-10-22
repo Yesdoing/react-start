@@ -1,0 +1,25 @@
+
+.todo-input td {
+    vertical-align: middle;
+}
+
+
+.todo-input div.DateInput {
+    width: 100%;
+}
+
+.todo-input .SingleDatePickerInput, .DateInput, .DateInput_input {
+    border: none;
+    background-color: transparent;
+    color: #00FFE2;
+}
+
+.todo-input .DateInput_input {
+    width: 80px;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 10px;
+    display: inline-block;
+    line-height: 0;
+}

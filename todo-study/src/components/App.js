@@ -5,6 +5,7 @@ import TodoList from './TodoList';
 import TodoSearch from './TodoSearch';
 import ModalTemplate from './ModalTemplate';
 import TodoInput from './TodoInput';
+import moment from 'moment';
 
 class App extends Component {
 
@@ -25,15 +26,9 @@ class App extends Component {
         return ++this.id;
     }
     
-    getDate = () => {
-        const today = new Date();
-        const dd = today.getDate() < 10 ? '0'+ today.getDate() : today.getDate();
-        const mm = today.getMonth() + 1 < 10 ? '0'+today.getMonth() : (today.getMonth() + 1);
-        const yyyy = today.getFullYear();
-        const hour = today.getHours();
-        const min = today.getMinutes();
-
-        return `${yyyy}-${mm}-${dd} ${hour}:${min} ~ ${yyyy}-${mm}-${dd} ${hour}:${min}`;
+    getDate = (date) => {
+        const today = moment().format('YYYY-MM-DD');
+        return `${today} ~ ${date}`;
     }
 
     handleFilter = (state) => {
@@ -88,13 +83,13 @@ class App extends Component {
         });
     }
 
-    handleInsert = () => {
+    handleInsert = (date) => {
         const { todos, input } = this.state;
 
         const newTodo = {
             text: input,
             done: false,
-            date: this.getDate(),
+            date: this.getDate(date),
             id: this.getId()
         };
 
